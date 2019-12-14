@@ -18,7 +18,10 @@ jobs:
           key: springframeworkguru-{{ checksum "pom.xml" }}
 
       # package into a jar
-      - run: mvn clean install
+      - run: mvn test
+      - run: mvn package
+      - run: mvn verify
+      - run: mvn install
 
       # store raw contents of src code
       - store_artifacts:
