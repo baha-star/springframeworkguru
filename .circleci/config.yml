@@ -18,10 +18,7 @@ jobs:
           key: springframeworkguru-{{ checksum "pom.xml" }}
 
       # package into a jar
-      - run: mvn clean package
-
-      # build and push docker image to docker hub
-      - run: mvn clean compile jib:build -Dimage=zarinlo/springboot-api:$CIRCLE_BUILD_NUM
+      - run: mvn clean install
 
       # store raw contents of src code
       - store_artifacts:
